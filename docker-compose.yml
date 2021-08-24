@@ -1,0 +1,62 @@
+version: '3.9'
+
+services:
+
+  webserver:
+    image: nginx:latest
+    container_name: web
+    working_dir: /usr/share/nginx/html
+    environment:
+      HOSTIPA: 172.23.17.3
+      HOSTIPB: 172.23.17.4
+      PORTA: 8081
+      PORTB: 8082
+    ports:
+      - "80:80"
+    volumes:
+      - ./deployment/conf/conf.d:/etc/nginx/conf.d:ro
+      - ./deployment/conf/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./deployment/conf/nginx_helpers.js:/etc/nginx/nginx_helpers.js:ro
+      - ./deployment/sites:/usr/share/nginx/html:ro
+      - ./deployment/root/.bashrc:/root/.bashrc:ro
+      - ./deployment/logs:/var/log/nginx
+    networks:
+      test-network:
+        ipv4_address: 172.23.17.2
+
+  weba:
+    image: nginx:latest
+    container_name: weba
+    working_dir: /usr/share/nginx/html
+    volumes:
+      - ./web-a/conf/conf.d:/etc/nginx/conf.d
+      - ./web-a/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./web-a/a:/usr/share/nginx/html
+      - ./web-a/root/.bashrc:/root/.bashrc:ro
+      - ./web-a/logs:/var/log/nginx
+    networks:
+      test-network:
+        ipv4_address: 172.23.17.3
+
+  webb:
+    image: nginx:latest
+    container_name: webb
+    working_dir: /usr/share/nginx/html
+    volumes:
+      - ./web-b/conf/conf.d:/etc/nginx/conf.d
+      - ./web-b/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./web-b/b:/usr/share/nginx/html
+      - ./web-b/root/.bashrc:/root/.bashrc:ro
+      - ./web-b/logs:/var/log/nginx
+    networks:
+      test-network:
+        ipv4_address: 172.23.17.4
+
+networks:
+  test-network:
+    name: nginx_network
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.23.17.0/24
