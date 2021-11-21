@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: wordpress:5.8.2-apache
+    restart: always
+    container_name: wordpress
+    environment:
+      WORDPRESS_DB_HOST: 172.30.0.90:3306
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: nginxindocker_database
+    volumes:
+      - ./wp:/var/www/html
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    ports:
+      - "8181:80"
+    networks:
+      my-net:
+        ipv4_address: 172.30.0.50
+
+networks:
+  my-net:
+    external: true
+    name: my-net
