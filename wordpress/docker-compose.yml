@@ -13,7 +13,6 @@ services:
       WORDPRESS_DB_NAME: nginxindocker_database
     volumes:
       - ./wp:/var/www/html
-      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     ports:
       - "8181:80"
     networks:
