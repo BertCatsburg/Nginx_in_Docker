@@ -1,0 +1,5 @@
+172.30.0.1 - - [21/Nov/2021:12:56:06 +0000] "GET / HTTP/1.1" 200 131 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0" "-"
+172.30.0.1 - - [21/Nov/2021:12:56:06 +0000] "GET /favicon.ico HTTP/1.1" 200 131 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0" "-"
+172.30.0.1 - - [21/Nov/2021:12:56:21 +0000] "GET / HTTP/1.1" 200 131 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0" "-"
+172.30.0.1 - - [21/Nov/2021:12:56:21 +0000] "GET /favicon.ico HTTP/1.1" 200 131 "http://127.0.0.1/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0" "-"
+172.30.0.1 - - [21/Nov/2021:12:56:54 +0000] "GET / HTTP/1.1" 200 131 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:94.0) Gecko/20100101 Firefox/94.0" "-"

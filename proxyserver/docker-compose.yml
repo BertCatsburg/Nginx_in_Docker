@@ -14,10 +14,10 @@ services:
       - ./deployment/usr/share/nginx/html:/usr/share/nginx/html:ro
       - ./deployment/var/log/nginx:/var/log/nginx
     networks:
-      test-network:
-        ipv4_address: 172.23.17.2
+      my-net:
+        ipv4_address: 172.30.0.2
 
 networks:
-  cops-net:
+  my-net:
     external: true
     name: my-net
