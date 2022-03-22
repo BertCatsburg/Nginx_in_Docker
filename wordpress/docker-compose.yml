@@ -13,8 +13,6 @@ services:
       WORDPRESS_DB_NAME: nginxindocker_database
     volumes:
       - ./wp:/var/www/html
-    ports:
-      - "8181:80"
     networks:
       my-net:
         ipv4_address: 172.30.0.50
