@@ -12,3 +12,4 @@ docker-compose down
 cd ../wordpress
 docker-compose down
 
+cd ..
