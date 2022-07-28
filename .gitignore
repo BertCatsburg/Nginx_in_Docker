@@ -3,3 +3,6 @@
 proxyserver/deployment/var/log/nginx/*.log
 wordpress/wp
 mysql/database
+
+start_all.sh
+stop_all.sh
