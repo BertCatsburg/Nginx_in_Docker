@@ -1,5 +1,6 @@
 .idea/
 .DS_Store
+
 proxyserver/deployment/var/log/nginx/*.log
 wordpress/wp
 mysql/database
