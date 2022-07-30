@@ -6,7 +6,7 @@ services:
     build: .
     image: "nodeapi_image"
     container_name: "nodeapi"
-    command: ["sleep", "30d"]
+    command: ["node", "app.js"]
     networks:
       my-net:
         ipv4_address: 172.30.0.20
