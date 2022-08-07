@@ -2,10 +2,10 @@ version: '3.9'
 
 services:
 
-  wordpress:
-    image: wordpress:6-apache
+  apache:
+    image: php:apache
     restart: always
-    container_name: wordpress
+    container_name: apache
     environment:
       WORDPRESS_DB_HOST: 172.30.0.90:3306
       WORDPRESS_DB_USER: exampleuser
@@ -15,12 +15,12 @@ services:
       WORDPRESS_DEBUG: 1
       APACHE_LOG_DIR: /logs
     volumes:
-      - ./wp:/var/www/html
+      - ./public_html:/var/www/html
       - ./logs:/logs:rw
       - ./deployment/set_servername.conf:/etc/apache2/conf-enabled/set_servername.conf:ro
     networks:
       my-net:
-        ipv4_address: 172.30.0.50
+        ipv4_address: 172.30.0.51
 
 networks:
   my-net:
